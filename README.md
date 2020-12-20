@@ -1,2 +1,2 @@
-# DATA110
- Introduction to Machine Learning and Natural Language Processing
+# DATA110: Introduction to Machine Learning and Natural Language Processing
+In this course, students will learn and apply the Python programming language as well as the basics of machine learning (ML), from basic classification to decision trees and clustering, and natural language processing (NLP), including sentiment analysis, summarization, dialogue state tracking. Prerequisites: DATA 50 and DATA 102.
