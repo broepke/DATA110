@@ -126,3 +126,4 @@ dmypy.json
 
 # Configuration files
 .idea
+.DS_Store
