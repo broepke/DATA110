@@ -1,18 +1,4 @@
 def fib(n):
-    '''
-    Generates a Fib Sequence
-
-    Parameters
-    ----------
-    n : TYPE
-        DESCRIPTION.
-
-    Returns
-    -------
-    fibs : TYPE
-        DESCRIPTION.
-
-    '''
     fibs = []
     a, b = 0, 1
     while a < n:
@@ -21,6 +7,8 @@ def fib(n):
     return fibs
 
 
-q = fib(1000)
+q = fib(10000)
 
-print(q)
+vingprint(q)
+
+# Thanks to some kids in Singapore
