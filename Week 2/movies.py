@@ -75,8 +75,8 @@ genres = moviesDict['movies']
 for gen in genres:
   print(gen)
   movies = moviesDict['movies'][gen]
+  
 
   # add remaining code to get the average rating movies by genre.
   # hint: use inner for-loop to loop through each movie of movies
-
-  
+   
