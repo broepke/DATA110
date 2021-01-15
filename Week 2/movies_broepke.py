@@ -2,6 +2,8 @@
 dictionary with movie genres from imdb
 each genre is a list of dictionary objects
 '''
+
+# Initialize the dictionary witht the first movie
 moviesDict = {"movies": {
     # horror titles
     "horror": [
@@ -9,37 +11,34 @@ moviesDict = {"movies": {
          "year": 2019,
          "rating": 6.1,
          },
-        {"title": "The Platform",
-            "year": 2019,
-            "rating": 7.0,
-         },
-    ]
+    ],
 }
 }
 
-# returns all horror movies
-horror = moviesDict["movies"].get("horror")
-
-# add a new horror movie
-# first create a dictionary
-newTitle = {"title": "Midsommar",
-            "year": 2019,
-            "rating": 7.1,
-            }
-
-# add the new title to horror. Note the use of append for lists
-horror.append(newTitle)
-
-# add another title, notice shorter code.
-horror.append({"title": "The Invisible Man",
-               "year": 2020,
-               "rating": 7.2,
-               })
-
-horror.append({"title": "Alien",
-               "year": 1979,
-               "rating": 8.4,
-               })
+# add horror genre to the movies dictionary
+horrors = [
+    {"title": "The Lodge",
+     "year": 2019,
+        "rating": 6.1,
+     },
+    {"title": "The Platform",
+        "year": 2019,
+     "rating": 7.0,
+     },
+    {"title": "Midsommar",
+        "year": 2019,
+     "rating": 7.1,
+     },
+    {"title": "The Invisible Man",
+        "year": 2020,
+     "rating": 7.2,
+     },
+    {"title": "Alien",
+        "year": 1979,
+     "rating": 8.4,
+     },
+]
+moviesDict['movies']['horror'] = horrors
 
 # add animation genre to the movies dictionary
 animations = [
