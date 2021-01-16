@@ -6,13 +6,20 @@ Created on Fri Jan 15 15:16:18 2021
 @author: brianroepke
 """
 
+
 def getTitle():
-    genre = input('Enter genre : ')   	        # get user input and assign to genre
-    keys = ['title', 'year', 'rating']   		# list of keys
-    values = []                       		    # empty list of values
-    title = input('Enter movie title: ') 	    # get user input and assign to title
-    values.append(title)                    	# append to values list
-    year = int(input('Enter movie year: '))    # get user input and assign to year, converted to int
+    # get user input and assign to genre
+    genre = input('Enter genre : ')
+    # list of keys
+    keys = ['title', 'year', 'rating']
+    # empty list of values
+    values = []
+    # get user input and assign to title
+    title = input('Enter movie title: ')
+    # append to values list
+    values.append(title)
+    # get user input and assign to year, converted to int
+    year = int(input('Enter movie year: '))
     values.append(year)
     rating = float(input("Enter movie rating: "))
     values.append(rating)

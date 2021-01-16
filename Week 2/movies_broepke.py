@@ -3,20 +3,12 @@ dictionary with movie genres from imdb
 each genre is a list of dictionary objects
 '''
 
-# Initialize the dictionary witht the first movie
-moviesDict = {"movies": {
-    # horror titles
-    "horror": [
-        {"title": "The Lodge",
-         "year": 2019,
-         "rating": 6.1,
-         },
-    ],
-}
-}
+moviesDict = {}
+moviesDict['movies'] = {'horror': [
+    {"title": None, "year": None, "rating": None}]}
 
 # add horror genre to the movies dictionary
-horrors = [
+horror_films = [
     {"title": "The Lodge",
      "year": 2019,
         "rating": 6.1,
@@ -38,10 +30,10 @@ horrors = [
      "rating": 8.4,
      },
 ]
-moviesDict['movies']['horror'] = horrors
+moviesDict['movies']['horror'] = horror_films
 
 # add animation genre to the movies dictionary
-animations = [
+animation_films = [
     {"title": "The Willoughbys",
      "year": 2020,
         "rating": 6.4,
@@ -63,9 +55,9 @@ animations = [
      "rating": 7.0,
      },
 ]
-moviesDict['movies']['animation'] = animations
+moviesDict['movies']['animation'] = animation_films
 
-comedies = [
+comedy_films = [
     {"title": "Back to the Future",
      "year": 1985,
         "rating": 8.5,
@@ -88,10 +80,10 @@ comedies = [
      },
 ]
 
-moviesDict['movies']['comedy'] = comedies
+moviesDict['movies']['comedy'] = comedy_films
 
 # add more genres with movie titles
-scifi = [
+scifi_films = [
     {"title": "Avengers: Endgame",
      "year": 2019,
         "rating": 8.4,
@@ -113,9 +105,9 @@ scifi = [
      "rating": 8.7,
      },
 ]
-moviesDict['movies']['scifi'] = scifi
+moviesDict['movies']['scifi'] = scifi_films
 
-actions = [
+action_films = [
     {"title": "Wonder Woman 1984",
      "year": 2020,
         "rating": 5.5,
@@ -138,7 +130,7 @@ actions = [
      },
 ]
 
-moviesDict['movies']['action'] = actions
+moviesDict['movies']['action'] = action_films
 
 # display details of each genre
 genres = moviesDict['movies']
@@ -148,7 +140,7 @@ for gen in genres:
     count = 0
     for movies in genres[gen]:
         print('movie: ' + str(movies['title']) +
-              ', year: ' + str(movies['rating']) +
+              ', year: ' + str(movies['year']) +
               ', rating: ' + str(movies['rating']))
         total += movies['rating']
         count += 1
