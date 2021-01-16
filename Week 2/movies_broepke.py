@@ -139,13 +139,9 @@ for gen in genres:
     total = 0
     count = 0
     for movies in genres[gen]:
-        print('movie: ' + str(movies['title']) +
-              ', year: ' + str(movies['year']) +
-              ', rating: ' + str(movies['rating']))
+        print("movie: {}, year: {}, rating: {}".format(
+            movies['title'], movies['year'], movies['rating']))
         total += movies['rating']
         count += 1
-    print(gen, 'avg movie rating:', total / count)
+    print('{} avg movie rating: {}'.format(gen, total/count))
     print('')
-
-    # add remaining code to get the average rating movies by genre.
-    # hint: use inner for-loop to loop through each movie of movies
