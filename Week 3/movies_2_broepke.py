@@ -1,57 +1,75 @@
 #!/usr/bin/env python3
 # -*- coding: utf-8 -*-
 """
-Created on Fri Jan 15 15:16:18 2021
+1. Create a function getTitle that asks for user input for
+(title, year, rating) and return a dictionary with the user values.
+Make sure to include exception handling of invalid input types.
 
-@author: brianroepke
+2. Create a function displayMovies which takes a dictionary as an input
+parameter and prints the details of each movie genre, along with all
+movies within a genre.
+
+3. Instead of defining a partially populated movie dictionary, you should
+start with an empty dictionary which gets added to given calls to getTitle.
+
+4. Also instead of a static 5 genres, use while loop which terminate
+based on user input of  "quit" for genre.
+There will still be 5 movie titles per genre.
 """
 
 
-def getTitle(user_genre):
+def getTitle():
+    done = False
     moviesDict = {"movies": {}}
-    genre = user_genre
-    keys = ['title', 'year', 'rating']
-    titles = []
+    while not done:
+        genre = input('Enter genre : ')
+        if genre.lower() == "quit":
+            done = True
+            return moviesDict
+        else:
+            keys = ['title', 'year', 'rating']
+            titles = []
+            count = 5
+            total = 0
 
-    # Request the user enter 5 movie titles
-    values = []
+            # Request the user enter 5 movie titles
+            for i in range(count):
+                values = []
 
-    ok = False
-    while not ok:
-        title = input('Enter movie title: ')
-        try:
-            val = str(title)
-            ok = True
-            values.append(val)
-        except ValueError:
-            print("Invalid type. Please try again")
+                ok = False
+                while not ok:
+                    title = input('Enter movie title: ')
+                    try:
+                        val = str(title)
+                        ok = True
+                        values.append(val)
+                    except ValueError:
+                        print("Invalid type. Please try again")
 
-    ok = False
-    while not ok:
-        year = input('Enter movie year: ')
-        try:
-            val = int(year)
-            ok = True
-            values.append(val)
-        except ValueError:
-            print("Invalid type. Please try again")
+                ok = False
+                while not ok:
+                    year = input('Enter movie year: ')
+                    try:
+                        val = int(year)
+                        ok = True
+                        values.append(val)
+                    except ValueError:
+                        print("Invalid type. Please try again")
 
-    ok = False
-    while not ok:
-        rating = input("Enter movie rating: ")
-        try:
-            val = float(rating)
-            ok = True
-            values.append(val)
-        except ValueError:
-            print("Invalid type. Please try again")
+                ok = False
+                while not ok:
+                    rating = input("Enter movie rating: ")
+                    try:
+                        val = float(rating)
+                        ok = True
+                        values.append(val)
+                    except ValueError:
+                        print("Invalid type. Please try again")
 
-    d = {k: v for k, v in zip(keys, values)}
-    titles.append(d)
+                d = {k: v for k, v in zip(keys, values)}
+                titles.append(d)
 
-    moviesDict['movies'][genre] = titles
-
-    return moviesDict
+            moviesDict['movies'][genre] = titles
 
 
 def displayMovies(mov_dict):
@@ -69,21 +87,12 @@ def displayMovies(mov_dict):
         print('')
 
 
-print("#####################################################################")
-print("#")
-print("This program will continue until you type the word DONE for the Genre")
-print("#")
-print("#####################################################################")
+print("This program will continue until you type the word QUIT for the Genre")
 
-done = False
-while not done:
-    genre = input('Enter genre : ')
-    if genre.lower() == "done":
-        break
-    else:
-        my_movie = getTitle(genre)
+my_movie = getTitle()
+
 
 try:
     displayMovies(my_movie)
-except NameError:
+except TypeError:
     print("Thank you!")
