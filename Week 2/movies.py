@@ -73,10 +73,16 @@ moviesDict['movies']['animation'] = animations
 # display details of each genre
 genres = moviesDict['movies']
 for gen in genres:
+<<<<<<< Updated upstream
   print(gen)
   movies = moviesDict['movies'][gen]
 
   # add remaining code to get the average rating movies by genre.
   # hint: use inner for-loop to loop through each movie of movies
+=======
+    print(gen)
+    print(genres[gen][0])
+    movies = moviesDict['movies'][gen]
+>>>>>>> Stashed changes
 
   
