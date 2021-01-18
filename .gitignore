@@ -127,3 +127,6 @@ dmypy.json
 # Configuration files
 .idea
 .DS_Store
+
+# Large folder, don't add to Github
+Datasets
