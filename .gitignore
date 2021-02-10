@@ -130,3 +130,6 @@ dmypy.json
 
 # Large folder, don't add to Github
 Datasets
+
+# VS Code
+.vscode
