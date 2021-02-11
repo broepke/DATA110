@@ -4,5 +4,7 @@
 			"path": "."
 		}
 	],
-	"settings": {}
+	"settings": {
+		"python.pythonPath": "/Users/brianroepke/opt/anaconda3/envs/DATA110/bin/python"
+	}
 }
