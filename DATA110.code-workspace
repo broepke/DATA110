@@ -5,6 +5,7 @@
 		}
 	],
 	"settings": {
-		"python.pythonPath": "/Users/brianroepke/opt/anaconda3/envs/DATA110/bin/python"
+		"python.pythonPath": "/Users/brianroepke/opt/anaconda3/envs/DATA110/bin/python",
+		"jupyter.jupyterServerType": "local"
 	}
 }
