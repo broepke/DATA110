@@ -14283,6 +14283,7 @@ a.anchor-link {
 <div class=" highlight hl-ipython3"><pre><span></span><span class="kn">import</span> <span class="nn">re</span>
 <span class="kn">import</span> <span class="nn">string</span>
 <span class="kn">import</span> <span class="nn">nltk</span>
+<span class="kn">import</span> <span class="nn">pandas</span> <span class="k">as</span> <span class="nn">pd</span>
 
 <span class="kn">from</span> <span class="nn">nltk.tokenize</span> <span class="kn">import</span> <span class="n">sent_tokenize</span>
 <span class="kn">from</span> <span class="nn">nltk.tokenize</span> <span class="kn">import</span> <span class="n">word_tokenize</span>
@@ -14297,6 +14298,7 @@ a.anchor-link {
 <span class="kn">from</span> <span class="nn">collections</span> <span class="kn">import</span> <span class="n">defaultdict</span>
 
 <span class="kn">import</span> <span class="nn">matplotlib.pyplot</span> <span class="k">as</span> <span class="nn">plt</span>
+<span class="kn">import</span> <span class="nn">seaborn</span> <span class="k">as</span> <span class="nn">sns</span>
 </pre></div>
 
      </div>
@@ -14364,7 +14366,14 @@ a.anchor-link {
 </div>
 <div class="jp-Cell-inputWrapper"><div class="jp-InputPrompt jp-InputArea-prompt">
 </div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput " data-mime-type="text/markdown">
-<h2 id="Tokenize">Tokenize<a class="anchor-link" href="#Tokenize">&#182;</a></h2>
+<p><strong>Note:</strong> Total number of characters <code>12,804</code></p>
+
+</div>
+</div>
+<div class="jp-Cell-inputWrapper"><div class="jp-InputPrompt jp-InputArea-prompt">
+</div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput " data-mime-type="text/markdown">
+<h2 id="Tokenize">Tokenize<a class="anchor-link" href="#Tokenize">&#182;</a></h2><p>Tokenizing the text is the process of transforming the collection of characters, into words or sentences.</p>
+
 </div>
 </div><div class="jp-Cell jp-CodeCell jp-Notebook-cell jp-mod-noOutputs  ">
 <div class="jp-Cell-inputWrapper">
@@ -14405,7 +14414,7 @@ a.anchor-link {
 <div class=" highlight hl-ipython3"><pre><span></span><span class="n">tokenized_sent</span> <span class="o">=</span> <span class="n">sent_tokenize</span><span class="p">(</span><span class="n">raw</span><span class="p">)</span>
 <span class="nb">print</span><span class="p">(</span><span class="s1">&#39;number of sentences in review:&#39;</span><span class="p">,</span> <span class="nb">len</span><span class="p">(</span><span class="n">tokenized_sent</span><span class="p">))</span>
 
-<span class="nb">print</span><span class="p">(</span><span class="s1">&#39;first 10 sentences&#39;</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="s1">&#39;first 5 sentences&#39;</span><span class="p">)</span>
 <span class="n">tokenized_sent</span><span class="p">[:</span><span class="mi">5</span><span class="p">]</span>
 </pre></div>
 
@@ -14427,7 +14436,7 @@ a.anchor-link {
 
 <div class="jp-RenderedText jp-OutputArea-output" data-mime-type="text/plain">
 <pre>number of sentences in review: 73
-first 10 sentences
+first 5 sentences
 </pre>
 </div>
 </div>
@@ -14534,7 +14543,7 @@ first 15 word tokens
 <div class="jp-CodeMirrorEditor jp-Editor jp-InputArea-editor" data-type="inline">
      <div class="CodeMirror cm-s-jupyter">
 <div class=" highlight hl-ipython3"><pre><span></span><span class="n">fdist</span> <span class="o">=</span> <span class="n">FreqDist</span><span class="p">(</span><span class="n">tokenized_word</span><span class="p">)</span>
-<span class="n">fdist</span>
+<span class="n">fdist</span><span class="o">.</span><span class="n">most_common</span><span class="p">(</span><span class="mi">10</span><span class="p">)</span>
 </pre></div>
 
      </div>
@@ -14551,43 +14560,6 @@ first 15 word tokens
 
     
     <div class="jp-OutputPrompt jp-OutputArea-prompt">Out[8]:</div>
-
-
-
-
-<div class="jp-RenderedText jp-OutputArea-output jp-OutputArea-executeResult" data-mime-type="text/plain">
-<pre>FreqDist({&#39;,&#39;: 127, &#39;the&#39;: 83, &#39;.&#39;: 72, &#39;a&#39;: 55, &#39;to&#39;: 48, &#39;of&#39;: 48, &#39;and&#39;: 43, &#39;in&#39;: 33, &#39;as&#39;: 30, &#39;chatbot&#39;: 27, ...})</pre>
-</div>
-
-</div>
-
-</div>
-
-</div>
-
-</div><div class="jp-Cell jp-CodeCell jp-Notebook-cell   ">
-<div class="jp-Cell-inputWrapper">
-<div class="jp-InputArea jp-Cell-inputArea">
-<div class="jp-InputPrompt jp-InputArea-prompt">In&nbsp;[9]:</div>
-<div class="jp-CodeMirrorEditor jp-Editor jp-InputArea-editor" data-type="inline">
-     <div class="CodeMirror cm-s-jupyter">
-<div class=" highlight hl-ipython3"><pre><span></span><span class="n">fdist</span><span class="o">.</span><span class="n">most_common</span><span class="p">(</span><span class="mi">10</span><span class="p">)</span>
-</pre></div>
-
-     </div>
-</div>
-</div>
-</div>
-
-<div class="jp-Cell-outputWrapper">
-
-
-<div class="jp-OutputArea jp-Cell-outputArea">
-
-<div class="jp-OutputArea-child">
-
-    
-    <div class="jp-OutputPrompt jp-OutputArea-prompt">Out[9]:</div>
 
 
 
@@ -14620,12 +14592,13 @@ first 15 word tokens
 </div>
 <div class="jp-Cell-inputWrapper"><div class="jp-InputPrompt jp-InputArea-prompt">
 </div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput " data-mime-type="text/markdown">
-<h2 id="Stop-Word-Removal-and-Punctuation">Stop Word Removal and Punctuation<a class="anchor-link" href="#Stop-Word-Removal-and-Punctuation">&#182;</a></h2>
+<h2 id="Stop-Word-Removal-&amp;-Punctuation">Stop Word Removal &amp; Punctuation<a class="anchor-link" href="#Stop-Word-Removal-&amp;-Punctuation">&#182;</a></h2><p>Next is the process of removing stop words. Stop words are common words that appear but do not add any additional understanding. Words such as <code>a</code> and <code>the</code> are examples. These words also appear very frequently, become dominant in your analysis, and obscure meaningful words.</p>
+
 </div>
 </div><div class="jp-Cell jp-CodeCell jp-Notebook-cell   ">
 <div class="jp-Cell-inputWrapper">
 <div class="jp-InputArea jp-Cell-inputArea">
-<div class="jp-InputPrompt jp-InputArea-prompt">In&nbsp;[10]:</div>
+<div class="jp-InputPrompt jp-InputArea-prompt">In&nbsp;[9]:</div>
 <div class="jp-CodeMirrorEditor jp-Editor jp-InputArea-editor" data-type="inline">
      <div class="CodeMirror cm-s-jupyter">
 <div class=" highlight hl-ipython3"><pre><span></span><span class="c1"># create a list of english stop words from NLTK, including punctuation</span>
@@ -14667,7 +14640,7 @@ first 15 words
 <div class="jp-OutputArea-child">
 
     
-    <div class="jp-OutputPrompt jp-OutputArea-prompt">Out[10]:</div>
+    <div class="jp-OutputPrompt jp-OutputArea-prompt">Out[9]:</div>
 
 
 
@@ -14700,7 +14673,7 @@ first 15 words
 </div><div class="jp-Cell jp-CodeCell jp-Notebook-cell   ">
 <div class="jp-Cell-inputWrapper">
 <div class="jp-InputArea jp-Cell-inputArea">
-<div class="jp-InputPrompt jp-InputArea-prompt">In&nbsp;[11]:</div>
+<div class="jp-InputPrompt jp-InputArea-prompt">In&nbsp;[10]:</div>
 <div class="jp-CodeMirrorEditor jp-Editor jp-InputArea-editor" data-type="inline">
      <div class="CodeMirror cm-s-jupyter">
 <div class=" highlight hl-ipython3"><pre><span></span><span class="n">fdist</span> <span class="o">=</span> <span class="n">FreqDist</span><span class="p">(</span><span class="n">filtered_words</span><span class="p">)</span>
@@ -14720,7 +14693,7 @@ first 15 words
 <div class="jp-OutputArea-child">
 
     
-    <div class="jp-OutputPrompt jp-OutputArea-prompt">Out[11]:</div>
+    <div class="jp-OutputPrompt jp-OutputArea-prompt">Out[10]:</div>
 
 
 
@@ -14753,7 +14726,7 @@ first 15 words
 </div><div class="jp-Cell jp-CodeCell jp-Notebook-cell   ">
 <div class="jp-Cell-inputWrapper">
 <div class="jp-InputArea jp-Cell-inputArea">
-<div class="jp-InputPrompt jp-InputArea-prompt">In&nbsp;[12]:</div>
+<div class="jp-InputPrompt jp-InputArea-prompt">In&nbsp;[11]:</div>
 <div class="jp-CodeMirrorEditor jp-Editor jp-InputArea-editor" data-type="inline">
      <div class="CodeMirror cm-s-jupyter">
 <div class=" highlight hl-ipython3"><pre><span></span><span class="n">plt</span><span class="o">.</span><span class="n">figure</span><span class="p">(</span><span class="n">figsize</span><span class="o">=</span><span class="p">(</span><span class="mi">10</span><span class="p">,</span> <span class="mi">5</span><span class="p">))</span>
@@ -14795,7 +14768,7 @@ first 15 words
 </div><div class="jp-Cell jp-CodeCell jp-Notebook-cell   ">
 <div class="jp-Cell-inputWrapper">
 <div class="jp-InputArea jp-Cell-inputArea">
-<div class="jp-InputPrompt jp-InputArea-prompt">In&nbsp;[13]:</div>
+<div class="jp-InputPrompt jp-InputArea-prompt">In&nbsp;[12]:</div>
 <div class="jp-CodeMirrorEditor jp-Editor jp-InputArea-editor" data-type="inline">
      <div class="CodeMirror cm-s-jupyter">
 <div class=" highlight hl-ipython3"><pre><span></span><span class="n">plt</span><span class="o">.</span><span class="n">figure</span><span class="p">(</span><span class="n">figsize</span><span class="o">=</span><span class="p">(</span><span class="mi">10</span><span class="p">,</span> <span class="mi">5</span><span class="p">))</span>
@@ -14835,12 +14808,13 @@ first 15 words
 </div>
 <div class="jp-Cell-inputWrapper"><div class="jp-InputPrompt jp-InputArea-prompt">
 </div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput " data-mime-type="text/markdown">
-<h2 id="Stemming-&amp;-Lemmatization">Stemming &amp; Lemmatization<a class="anchor-link" href="#Stemming-&amp;-Lemmatization">&#182;</a></h2>
+<h2 id="Stemming-&amp;-Lemmatization">Stemming &amp; Lemmatization<a class="anchor-link" href="#Stemming-&amp;-Lemmatization">&#182;</a></h2><p>Stemming is removing characters from the beginning or end of a word to reduce it to its stem. Lemmatization is the process of determining the lemma, or canonical form of a word. An example of stemming would be to reduce <code>runs</code> to <code>run</code> as the base word dropping the <code>s</code>, where <code>ran</code> would not be in the same stem. However, lemmatization would classify <code>ran</code> in the same lemma. These techniques ensure that you have a corpus with the most meaningful words in their base forms.</p>
+
 </div>
 </div><div class="jp-Cell jp-CodeCell jp-Notebook-cell   ">
 <div class="jp-Cell-inputWrapper">
 <div class="jp-InputArea jp-Cell-inputArea">
-<div class="jp-InputPrompt jp-InputArea-prompt">In&nbsp;[14]:</div>
+<div class="jp-InputPrompt jp-InputArea-prompt">In&nbsp;[13]:</div>
 <div class="jp-CodeMirrorEditor jp-Editor jp-InputArea-editor" data-type="inline">
      <div class="CodeMirror cm-s-jupyter">
 <div class=" highlight hl-ipython3"><pre><span></span><span class="n">ps</span> <span class="o">=</span> <span class="n">PorterStemmer</span><span class="p">()</span>
@@ -14892,7 +14866,7 @@ Stemmed Sentences word count: 728
 <div class="jp-OutputArea-child">
 
     
-    <div class="jp-OutputPrompt jp-OutputArea-prompt">Out[14]:</div>
+    <div class="jp-OutputPrompt jp-OutputArea-prompt">Out[13]:</div>
 
 
 
@@ -14925,7 +14899,7 @@ Stemmed Sentences word count: 728
 </div><div class="jp-Cell jp-CodeCell jp-Notebook-cell   ">
 <div class="jp-Cell-inputWrapper">
 <div class="jp-InputArea jp-Cell-inputArea">
-<div class="jp-InputPrompt jp-InputArea-prompt">In&nbsp;[15]:</div>
+<div class="jp-InputPrompt jp-InputArea-prompt">In&nbsp;[14]:</div>
 <div class="jp-CodeMirrorEditor jp-Editor jp-InputArea-editor" data-type="inline">
      <div class="CodeMirror cm-s-jupyter">
 <div class=" highlight hl-ipython3"><pre><span></span><span class="n">lem</span> <span class="o">=</span> <span class="n">WordNetLemmatizer</span><span class="p">()</span>
@@ -14976,7 +14950,7 @@ Lemmatized Sentences word count: 234
 <div class="jp-OutputArea-child">
 
     
-    <div class="jp-OutputPrompt jp-OutputArea-prompt">Out[15]:</div>
+    <div class="jp-OutputPrompt jp-OutputArea-prompt">Out[14]:</div>
 
 
 
@@ -15020,7 +14994,7 @@ Lemmatized Sentences word count: 234
 </div><div class="jp-Cell jp-CodeCell jp-Notebook-cell   ">
 <div class="jp-Cell-inputWrapper">
 <div class="jp-InputArea jp-Cell-inputArea">
-<div class="jp-InputPrompt jp-InputArea-prompt">In&nbsp;[16]:</div>
+<div class="jp-InputPrompt jp-InputArea-prompt">In&nbsp;[15]:</div>
 <div class="jp-CodeMirrorEditor jp-Editor jp-InputArea-editor" data-type="inline">
      <div class="CodeMirror cm-s-jupyter">
 <div class=" highlight hl-ipython3"><pre><span></span><span class="n">lemm_words</span><span class="o">=</span><span class="p">[]</span>
@@ -15068,7 +15042,7 @@ Lemmatized Sentences word count: 155
 <div class="jp-OutputArea-child">
 
     
-    <div class="jp-OutputPrompt jp-OutputArea-prompt">Out[16]:</div>
+    <div class="jp-OutputPrompt jp-OutputArea-prompt">Out[15]:</div>
 
 
 
@@ -15108,27 +15082,15 @@ Lemmatized Sentences word count: 155
 <p><strong>Note:</strong> Similar Process as above but using nouns as the Part of Speech.  You can see the same process, but with different word in their Noun form such as <code>utilities</code> to <code>utility</code>.</p>
 
 </div>
-</div><div class="jp-Cell jp-CodeCell jp-Notebook-cell jp-mod-noOutputs  ">
-<div class="jp-Cell-inputWrapper">
-<div class="jp-InputArea jp-Cell-inputArea">
-<div class="jp-InputPrompt jp-InputArea-prompt">In&nbsp;[17]:</div>
-<div class="jp-CodeMirrorEditor jp-Editor jp-InputArea-editor" data-type="inline">
-     <div class="CodeMirror cm-s-jupyter">
-<div class=" highlight hl-ipython3"><pre><span></span><span class="n">stemmed_words</span> <span class="o">=</span> <span class="p">[</span><span class="n">ps</span><span class="o">.</span><span class="n">stem</span><span class="p">(</span><span class="n">word</span><span class="p">)</span> <span class="k">for</span> <span class="n">word</span> <span class="ow">in</span> <span class="n">filtered_words</span><span class="p">]</span>
-</pre></div>
-
-     </div>
-</div>
-</div>
-</div>
-
 </div><div class="jp-Cell jp-CodeCell jp-Notebook-cell   ">
 <div class="jp-Cell-inputWrapper">
 <div class="jp-InputArea jp-Cell-inputArea">
-<div class="jp-InputPrompt jp-InputArea-prompt">In&nbsp;[18]:</div>
+<div class="jp-InputPrompt jp-InputArea-prompt">In&nbsp;[16]:</div>
 <div class="jp-CodeMirrorEditor jp-Editor jp-InputArea-editor" data-type="inline">
      <div class="CodeMirror cm-s-jupyter">
-<div class=" highlight hl-ipython3"><pre><span></span><span class="n">fdist</span> <span class="o">=</span> <span class="n">FreqDist</span><span class="p">(</span><span class="n">stemmed_words</span><span class="p">)</span>
+<div class=" highlight hl-ipython3"><pre><span></span><span class="n">stemmed_words</span> <span class="o">=</span> <span class="p">[</span><span class="n">ps</span><span class="o">.</span><span class="n">stem</span><span class="p">(</span><span class="n">word</span><span class="p">)</span> <span class="k">for</span> <span class="n">word</span> <span class="ow">in</span> <span class="n">filtered_words</span><span class="p">]</span>
+
+<span class="n">fdist</span> <span class="o">=</span> <span class="n">FreqDist</span><span class="p">(</span><span class="n">stemmed_words</span><span class="p">)</span>
 <span class="n">fdist</span><span class="o">.</span><span class="n">most_common</span><span class="p">(</span><span class="mi">10</span><span class="p">)</span>
 </pre></div>
 
@@ -15145,7 +15107,7 @@ Lemmatized Sentences word count: 155
 <div class="jp-OutputArea-child">
 
     
-    <div class="jp-OutputPrompt jp-OutputArea-prompt">Out[18]:</div>
+    <div class="jp-OutputPrompt jp-OutputArea-prompt">Out[16]:</div>
 
 
 
@@ -15178,7 +15140,7 @@ Lemmatized Sentences word count: 155
 </div><div class="jp-Cell jp-CodeCell jp-Notebook-cell   ">
 <div class="jp-Cell-inputWrapper">
 <div class="jp-InputArea jp-Cell-inputArea">
-<div class="jp-InputPrompt jp-InputArea-prompt">In&nbsp;[19]:</div>
+<div class="jp-InputPrompt jp-InputArea-prompt">In&nbsp;[17]:</div>
 <div class="jp-CodeMirrorEditor jp-Editor jp-InputArea-editor" data-type="inline">
      <div class="CodeMirror cm-s-jupyter">
 <div class=" highlight hl-ipython3"><pre><span></span><span class="n">plt</span><span class="o">.</span><span class="n">figure</span><span class="p">(</span><span class="n">figsize</span><span class="o">=</span><span class="p">(</span><span class="mi">10</span><span class="p">,</span> <span class="mi">5</span><span class="p">))</span>
@@ -15424,27 +15386,15 @@ Lemmatized Sentences word count: 155
     <td>Wh-adverb 
 </td></tr></tbody></table>
 </div>
-</div><div class="jp-Cell jp-CodeCell jp-Notebook-cell jp-mod-noOutputs  ">
-<div class="jp-Cell-inputWrapper">
-<div class="jp-InputArea jp-Cell-inputArea">
-<div class="jp-InputPrompt jp-InputArea-prompt">In&nbsp;[20]:</div>
-<div class="jp-CodeMirrorEditor jp-Editor jp-InputArea-editor" data-type="inline">
-     <div class="CodeMirror cm-s-jupyter">
-<div class=" highlight hl-ipython3"><pre><span></span><span class="n">tokenized_sent</span> <span class="o">=</span> <span class="n">sent_tokenize</span><span class="p">(</span><span class="n">raw_orig</span><span class="p">)</span>
-</pre></div>
-
-     </div>
-</div>
-</div>
-</div>
-
 </div><div class="jp-Cell jp-CodeCell jp-Notebook-cell   ">
 <div class="jp-Cell-inputWrapper">
 <div class="jp-InputArea jp-Cell-inputArea">
-<div class="jp-InputPrompt jp-InputArea-prompt">In&nbsp;[21]:</div>
+<div class="jp-InputPrompt jp-InputArea-prompt">In&nbsp;[18]:</div>
 <div class="jp-CodeMirrorEditor jp-Editor jp-InputArea-editor" data-type="inline">
      <div class="CodeMirror cm-s-jupyter">
-<div class=" highlight hl-ipython3"><pre><span></span><span class="p">[</span><span class="n">nltk</span><span class="o">.</span><span class="n">pos_tag</span><span class="p">(</span><span class="n">nltk</span><span class="o">.</span><span class="n">word_tokenize</span><span class="p">(</span><span class="n">word</span><span class="p">))</span> <span class="k">for</span> <span class="n">word</span> <span class="ow">in</span> <span class="n">tokenized_sent</span><span class="p">[</span><span class="mi">1</span><span class="p">:</span><span class="mi">2</span><span class="p">]]</span>
+<div class=" highlight hl-ipython3"><pre><span></span><span class="n">tokenized_sent</span> <span class="o">=</span> <span class="n">sent_tokenize</span><span class="p">(</span><span class="n">raw_orig</span><span class="p">)</span>
+
+<span class="p">[</span><span class="n">nltk</span><span class="o">.</span><span class="n">pos_tag</span><span class="p">(</span><span class="n">nltk</span><span class="o">.</span><span class="n">word_tokenize</span><span class="p">(</span><span class="n">word</span><span class="p">))</span> <span class="k">for</span> <span class="n">word</span> <span class="ow">in</span> <span class="n">tokenized_sent</span><span class="p">[</span><span class="mi">1</span><span class="p">:</span><span class="mi">2</span><span class="p">]]</span>
 </pre></div>
 
      </div>
@@ -15460,7 +15410,7 @@ Lemmatized Sentences word count: 155
 <div class="jp-OutputArea-child">
 
     
-    <div class="jp-OutputPrompt jp-OutputArea-prompt">Out[21]:</div>
+    <div class="jp-OutputPrompt jp-OutputArea-prompt">Out[18]:</div>
 
 
 
@@ -15503,7 +15453,7 @@ Lemmatized Sentences word count: 155
 </div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput " data-mime-type="text/markdown">
 <p><strong>Notes:</strong> From the first sentence in the corpus, each word gets a POS tags that show us how this works.  Here are a couple examples:</p>
 <ul>
-<li><code>programs</code>, <code>partner</code>, and <code>test</code> are Nouns (NN and NNS for plural.</li>
+<li><code>programs</code>, <code>partner</code>, and <code>test</code> are Nouns (NN and NNS for plural).</li>
 <li><code>Turing</code> is a Proper Noun (NNP) for someone's name.</li>
 <li><code>designed</code>, <code>passing</code>, and <code>behave</code> are examples of Verbs (VBN, VB, VBG).</li>
 <li><code>human</code> and <code>conversational</code> are Adjectives.</li>
@@ -15519,7 +15469,7 @@ Lemmatized Sentences word count: 155
 </div><div class="jp-Cell jp-CodeCell jp-Notebook-cell   ">
 <div class="jp-Cell-inputWrapper">
 <div class="jp-InputArea jp-Cell-inputArea">
-<div class="jp-InputPrompt jp-InputArea-prompt">In&nbsp;[22]:</div>
+<div class="jp-InputPrompt jp-InputArea-prompt">In&nbsp;[19]:</div>
 <div class="jp-CodeMirrorEditor jp-Editor jp-InputArea-editor" data-type="inline">
      <div class="CodeMirror cm-s-jupyter">
 <div class=" highlight hl-ipython3"><pre><span></span><span class="c1">#tokenize sentences from the news article</span>
@@ -15584,7 +15534,7 @@ Lemmatized Sentences word count: 155
 </div><div class="jp-Cell jp-CodeCell jp-Notebook-cell jp-mod-noOutputs  ">
 <div class="jp-Cell-inputWrapper">
 <div class="jp-InputArea jp-Cell-inputArea">
-<div class="jp-InputPrompt jp-InputArea-prompt">In&nbsp;[23]:</div>
+<div class="jp-InputPrompt jp-InputArea-prompt">In&nbsp;[20]:</div>
 <div class="jp-CodeMirrorEditor jp-Editor jp-InputArea-editor" data-type="inline">
      <div class="CodeMirror cm-s-jupyter">
 <div class=" highlight hl-ipython3"><pre><span></span><span class="n">person</span> <span class="o">=</span> <span class="p">[]</span>
@@ -15617,7 +15567,7 @@ Lemmatized Sentences word count: 155
 </div><div class="jp-Cell jp-CodeCell jp-Notebook-cell   ">
 <div class="jp-Cell-inputWrapper">
 <div class="jp-InputArea jp-Cell-inputArea">
-<div class="jp-InputPrompt jp-InputArea-prompt">In&nbsp;[24]:</div>
+<div class="jp-InputPrompt jp-InputArea-prompt">In&nbsp;[21]:</div>
 <div class="jp-CodeMirrorEditor jp-Editor jp-InputArea-editor" data-type="inline">
      <div class="CodeMirror cm-s-jupyter">
 <div class=" highlight hl-ipython3"><pre><span></span><span class="n">ner_types</span>
@@ -15636,7 +15586,7 @@ Lemmatized Sentences word count: 155
 <div class="jp-OutputArea-child">
 
     
-    <div class="jp-OutputPrompt jp-OutputArea-prompt">Out[24]:</div>
+    <div class="jp-OutputPrompt jp-OutputArea-prompt">Out[21]:</div>
 
 
 
@@ -15654,7 +15604,7 @@ Lemmatized Sentences word count: 155
 </div><div class="jp-Cell jp-CodeCell jp-Notebook-cell   ">
 <div class="jp-Cell-inputWrapper">
 <div class="jp-InputArea jp-Cell-inputArea">
-<div class="jp-InputPrompt jp-InputArea-prompt">In&nbsp;[25]:</div>
+<div class="jp-InputPrompt jp-InputArea-prompt">In&nbsp;[22]:</div>
 <div class="jp-CodeMirrorEditor jp-Editor jp-InputArea-editor" data-type="inline">
      <div class="CodeMirror cm-s-jupyter">
 <div class=" highlight hl-ipython3"><pre><span></span><span class="nb">print</span><span class="p">(</span><span class="s1">&#39;PERSON:&#39;</span><span class="p">,</span> <span class="nb">len</span><span class="p">(</span><span class="n">person</span><span class="p">))</span>
@@ -15690,6 +15640,56 @@ GPE: 33
 
 </div>
 
+</div><div class="jp-Cell jp-CodeCell jp-Notebook-cell   ">
+<div class="jp-Cell-inputWrapper">
+<div class="jp-InputArea jp-Cell-inputArea">
+<div class="jp-InputPrompt jp-InputArea-prompt">In&nbsp;[23]:</div>
+<div class="jp-CodeMirrorEditor jp-Editor jp-InputArea-editor" data-type="inline">
+     <div class="CodeMirror cm-s-jupyter">
+<div class=" highlight hl-ipython3"><pre><span></span><span class="n">d</span> <span class="o">=</span> <span class="p">{</span><span class="s1">&#39;NER&#39;</span> <span class="p">:</span> <span class="n">pd</span><span class="o">.</span><span class="n">Series</span><span class="p">([</span><span class="nb">len</span><span class="p">(</span><span class="n">person</span><span class="p">),</span> <span class="nb">len</span><span class="p">(</span><span class="n">org</span><span class="p">),</span> <span class="nb">len</span><span class="p">(</span><span class="n">gpe</span><span class="p">)],</span> <span class="n">index</span><span class="o">=</span><span class="p">[</span><span class="s1">&#39;PER&#39;</span><span class="p">,</span> <span class="s1">&#39;ORG&#39;</span><span class="p">,</span> <span class="s1">&#39;GPE&#39;</span><span class="p">])}</span>
+
+<span class="n">df_ner</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">DataFrame</span><span class="p">(</span><span class="n">d</span><span class="p">)</span>
+<span class="n">df_ner</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">kind</span><span class="o">=</span><span class="s1">&#39;pie&#39;</span><span class="p">,</span> <span class="n">y</span><span class="o">=</span><span class="s1">&#39;NER&#39;</span><span class="p">,</span> <span class="n">legend</span><span class="o">=</span><span class="kc">False</span><span class="p">,</span> 
+            <span class="n">title</span><span class="o">=</span><span class="s2">&quot;Count of NER Categories&quot;</span><span class="p">,</span> 
+            <span class="n">ylabel</span><span class="o">=</span><span class="s1">&#39;&#39;</span><span class="p">,</span> <span class="n">autopct</span><span class="o">=</span><span class="s1">&#39;</span><span class="si">%1.1f%%</span><span class="s1">&#39;</span><span class="p">);</span>
+</pre></div>
+
+     </div>
+</div>
+</div>
+</div>
+
+<div class="jp-Cell-outputWrapper">
+
+
+<div class="jp-OutputArea jp-Cell-outputArea">
+
+<div class="jp-OutputArea-child">
+
+    
+    <div class="jp-OutputPrompt jp-OutputArea-prompt"></div>
+
+
+
+
+<div class="jp-RenderedImage jp-OutputArea-output ">
+<img src="data:image/png;base64,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
+"
+>
+</div>
+
+</div>
+
+</div>
+
+</div>
+
+</div>
+<div class="jp-Cell-inputWrapper"><div class="jp-InputPrompt jp-InputArea-prompt">
+</div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput " data-mime-type="text/markdown">
+<p>A quick plot show the relative difference of each NER type in the corpus.</p>
+
+</div>
 </div>
 <div class="jp-Cell-inputWrapper"><div class="jp-InputPrompt jp-InputArea-prompt">
 </div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput " data-mime-type="text/markdown">
@@ -15698,7 +15698,7 @@ GPE: 33
 </div><div class="jp-Cell jp-CodeCell jp-Notebook-cell   ">
 <div class="jp-Cell-inputWrapper">
 <div class="jp-InputArea jp-Cell-inputArea">
-<div class="jp-InputPrompt jp-InputArea-prompt">In&nbsp;[26]:</div>
+<div class="jp-InputPrompt jp-InputArea-prompt">In&nbsp;[24]:</div>
 <div class="jp-CodeMirrorEditor jp-Editor jp-InputArea-editor" data-type="inline">
      <div class="CodeMirror cm-s-jupyter">
 <div class=" highlight hl-ipython3"><pre><span></span><span class="nb">set</span><span class="p">(</span><span class="n">person</span><span class="p">[:</span><span class="mi">10</span><span class="p">])</span>
@@ -15717,7 +15717,7 @@ GPE: 33
 <div class="jp-OutputArea-child">
 
     
-    <div class="jp-OutputPrompt jp-OutputArea-prompt">Out[26]:</div>
+    <div class="jp-OutputPrompt jp-OutputArea-prompt">Out[24]:</div>
 
 
 
@@ -15744,7 +15744,7 @@ GPE: 33
 </div><div class="jp-Cell jp-CodeCell jp-Notebook-cell   ">
 <div class="jp-Cell-inputWrapper">
 <div class="jp-InputArea jp-Cell-inputArea">
-<div class="jp-InputPrompt jp-InputArea-prompt">In&nbsp;[27]:</div>
+<div class="jp-InputPrompt jp-InputArea-prompt">In&nbsp;[25]:</div>
 <div class="jp-CodeMirrorEditor jp-Editor jp-InputArea-editor" data-type="inline">
      <div class="CodeMirror cm-s-jupyter">
 <div class=" highlight hl-ipython3"><pre><span></span><span class="nb">set</span><span class="p">(</span><span class="n">org</span><span class="p">[:</span><span class="mi">15</span><span class="p">])</span>
@@ -15763,7 +15763,7 @@ GPE: 33
 <div class="jp-OutputArea-child">
 
     
-    <div class="jp-OutputPrompt jp-OutputArea-prompt">Out[27]:</div>
+    <div class="jp-OutputPrompt jp-OutputArea-prompt">Out[25]:</div>
 
 
 
@@ -15793,7 +15793,7 @@ GPE: 33
 </div><div class="jp-Cell jp-CodeCell jp-Notebook-cell   ">
 <div class="jp-Cell-inputWrapper">
 <div class="jp-InputArea jp-Cell-inputArea">
-<div class="jp-InputPrompt jp-InputArea-prompt">In&nbsp;[28]:</div>
+<div class="jp-InputPrompt jp-InputArea-prompt">In&nbsp;[26]:</div>
 <div class="jp-CodeMirrorEditor jp-Editor jp-InputArea-editor" data-type="inline">
      <div class="CodeMirror cm-s-jupyter">
 <div class=" highlight hl-ipython3"><pre><span></span><span class="nb">set</span><span class="p">(</span><span class="n">gpe</span><span class="p">[:</span><span class="mi">15</span><span class="p">])</span>
@@ -15812,7 +15812,7 @@ GPE: 33
 <div class="jp-OutputArea-child">
 
     
-    <div class="jp-OutputPrompt jp-OutputArea-prompt">Out[28]:</div>
+    <div class="jp-OutputPrompt jp-OutputArea-prompt">Out[26]:</div>
 
 
 
@@ -15852,7 +15852,7 @@ GPE: 33
 </div><div class="jp-Cell jp-CodeCell jp-Notebook-cell   ">
 <div class="jp-Cell-inputWrapper">
 <div class="jp-InputArea jp-Cell-inputArea">
-<div class="jp-InputPrompt jp-InputArea-prompt">In&nbsp;[29]:</div>
+<div class="jp-InputPrompt jp-InputArea-prompt">In&nbsp;[27]:</div>
 <div class="jp-CodeMirrorEditor jp-Editor jp-InputArea-editor" data-type="inline">
      <div class="CodeMirror cm-s-jupyter">
 <div class=" highlight hl-ipython3"><pre><span></span><span class="n">ner_categories</span> <span class="o">=</span> <span class="n">defaultdict</span><span class="p">(</span><span class="nb">int</span><span class="p">)</span>
@@ -15886,7 +15886,7 @@ GPE: 33
 <div class="jp-OutputArea-child">
 
     
-    <div class="jp-OutputPrompt jp-OutputArea-prompt">Out[29]:</div>
+    <div class="jp-OutputPrompt jp-OutputArea-prompt">Out[27]:</div>
 
 
 
@@ -15982,7 +15982,7 @@ First, a quick demonstration on how POS tagging looks with a couple of words, <c
 </div><div class="jp-Cell jp-CodeCell jp-Notebook-cell   ">
 <div class="jp-Cell-inputWrapper">
 <div class="jp-InputArea jp-Cell-inputArea">
-<div class="jp-InputPrompt jp-InputArea-prompt">In&nbsp;[30]:</div>
+<div class="jp-InputPrompt jp-InputArea-prompt">In&nbsp;[28]:</div>
 <div class="jp-CodeMirrorEditor jp-Editor jp-InputArea-editor" data-type="inline">
      <div class="CodeMirror cm-s-jupyter">
 <div class=" highlight hl-ipython3"><pre><span></span><span class="nb">print</span><span class="p">(</span><span class="s1">&#39;&#39;</span><span class="p">,</span><span class="n">pos_tag</span><span class="p">(</span><span class="n">word_tokenize</span><span class="p">(</span><span class="s2">&quot;artificial&quot;</span><span class="p">)),</span> <span class="s1">&#39;</span><span class="se">\n</span><span class="s1">&#39;</span><span class="p">,</span> <span class="n">pos_tag</span><span class="p">(</span><span class="n">word_tokenize</span><span class="p">(</span><span class="s2">&quot;intelligence&quot;</span><span class="p">)))</span>
@@ -16024,7 +16024,7 @@ First, a quick demonstration on how POS tagging looks with a couple of words, <c
 </div><div class="jp-Cell jp-CodeCell jp-Notebook-cell   ">
 <div class="jp-Cell-inputWrapper">
 <div class="jp-InputArea jp-Cell-inputArea">
-<div class="jp-InputPrompt jp-InputArea-prompt">In&nbsp;[31]:</div>
+<div class="jp-InputPrompt jp-InputArea-prompt">In&nbsp;[29]:</div>
 <div class="jp-CodeMirrorEditor jp-Editor jp-InputArea-editor" data-type="inline">
      <div class="CodeMirror cm-s-jupyter">
 <div class=" highlight hl-ipython3"><pre><span></span><span class="n">pos_tag</span><span class="p">(</span><span class="n">word_tokenize</span><span class="p">(</span><span class="s2">&quot;Alan&quot;</span><span class="p">))</span>
@@ -16043,7 +16043,7 @@ First, a quick demonstration on how POS tagging looks with a couple of words, <c
 <div class="jp-OutputArea-child">
 
     
-    <div class="jp-OutputPrompt jp-OutputArea-prompt">Out[31]:</div>
+    <div class="jp-OutputPrompt jp-OutputArea-prompt">Out[29]:</div>
 
 
 
@@ -16066,7 +16066,7 @@ First, a quick demonstration on how POS tagging looks with a couple of words, <c
 </div><div class="jp-Cell jp-CodeCell jp-Notebook-cell jp-mod-noOutputs  ">
 <div class="jp-Cell-inputWrapper">
 <div class="jp-InputArea jp-Cell-inputArea">
-<div class="jp-InputPrompt jp-InputArea-prompt">In&nbsp;[32]:</div>
+<div class="jp-InputPrompt jp-InputArea-prompt">In&nbsp;[30]:</div>
 <div class="jp-CodeMirrorEditor jp-Editor jp-InputArea-editor" data-type="inline">
      <div class="CodeMirror cm-s-jupyter">
 <div class=" highlight hl-ipython3"><pre><span></span><span class="k">def</span> <span class="nf">reg_chunker</span><span class="p">(</span><span class="n">sents</span><span class="p">,</span> <span class="n">begin</span><span class="p">,</span> <span class="n">end</span><span class="p">,</span> <span class="n">expression</span><span class="p">):</span>
@@ -16102,7 +16102,7 @@ First, a quick demonstration on how POS tagging looks with a couple of words, <c
 </div><div class="jp-Cell jp-CodeCell jp-Notebook-cell   ">
 <div class="jp-Cell-inputWrapper">
 <div class="jp-InputArea jp-Cell-inputArea">
-<div class="jp-InputPrompt jp-InputArea-prompt">In&nbsp;[33]:</div>
+<div class="jp-InputPrompt jp-InputArea-prompt">In&nbsp;[31]:</div>
 <div class="jp-CodeMirrorEditor jp-Editor jp-InputArea-editor" data-type="inline">
      <div class="CodeMirror cm-s-jupyter">
 <div class=" highlight hl-ipython3"><pre><span></span><span class="s1">&#39; &#39;</span><span class="o">.</span><span class="n">join</span><span class="p">(</span><span class="n">tokenized_sent</span><span class="p">[</span><span class="mi">1</span><span class="p">:</span><span class="mi">7</span><span class="p">])</span>
@@ -16121,7 +16121,7 @@ First, a quick demonstration on how POS tagging looks with a couple of words, <c
 <div class="jp-OutputArea-child">
 
     
-    <div class="jp-OutputPrompt jp-OutputArea-prompt">Out[33]:</div>
+    <div class="jp-OutputPrompt jp-OutputArea-prompt">Out[31]:</div>
 
 
 
@@ -16145,7 +16145,7 @@ First, a quick demonstration on how POS tagging looks with a couple of words, <c
 </div><div class="jp-Cell jp-CodeCell jp-Notebook-cell   ">
 <div class="jp-Cell-inputWrapper">
 <div class="jp-InputArea jp-Cell-inputArea">
-<div class="jp-InputPrompt jp-InputArea-prompt">In&nbsp;[34]:</div>
+<div class="jp-InputPrompt jp-InputArea-prompt">In&nbsp;[32]:</div>
 <div class="jp-CodeMirrorEditor jp-Editor jp-InputArea-editor" data-type="inline">
      <div class="CodeMirror cm-s-jupyter">
 <div class=" highlight hl-ipython3"><pre><span></span><span class="n">reg_chunker</span><span class="p">(</span><span class="n">tokenized_sent</span><span class="p">,</span> <span class="mi">1</span><span class="p">,</span> <span class="mi">9</span><span class="p">,</span> <span class="sa">r</span><span class="s1">&#39;NP: {&lt;JJ&gt;+&lt;NN&gt;}&#39;</span><span class="p">)</span>
@@ -16209,7 +16209,7 @@ When passing in this <code>RegEx</code> pattern, we can see some of the chunks r
 </div><div class="jp-Cell jp-CodeCell jp-Notebook-cell   ">
 <div class="jp-Cell-inputWrapper">
 <div class="jp-InputArea jp-Cell-inputArea">
-<div class="jp-InputPrompt jp-InputArea-prompt">In&nbsp;[35]:</div>
+<div class="jp-InputPrompt jp-InputArea-prompt">In&nbsp;[33]:</div>
 <div class="jp-CodeMirrorEditor jp-Editor jp-InputArea-editor" data-type="inline">
      <div class="CodeMirror cm-s-jupyter">
 <div class=" highlight hl-ipython3"><pre><span></span><span class="n">reg_chunker</span><span class="p">(</span><span class="n">tokenized_sent</span><span class="p">,</span> <span class="mi">1</span><span class="p">,</span> <span class="mi">7</span><span class="p">,</span> <span class="sa">r</span><span class="s1">&#39;NP: {&lt;NN.?&gt;+&lt;NN.?&gt;}&#39;</span><span class="p">)</span>
@@ -16270,20 +16270,6 @@ When passing in this <code>RegEx</code> pattern, we can see some of the chunks r
 <p>Some of these are a little more interesting becasue we can see the concept of extracing proper names from a corpus of text, a useful concept using these patterns.</p>
 
 </div>
-</div><div class="jp-Cell jp-CodeCell jp-Notebook-cell jp-mod-noOutputs  ">
-<div class="jp-Cell-inputWrapper">
-<div class="jp-InputArea jp-Cell-inputArea">
-<div class="jp-InputPrompt jp-InputArea-prompt">In&nbsp;[&nbsp;]:</div>
-<div class="jp-CodeMirrorEditor jp-Editor jp-InputArea-editor" data-type="inline">
-     <div class="CodeMirror cm-s-jupyter">
-<div class=" highlight hl-ipython3"><pre><span></span> 
-</pre></div>
-
-     </div>
-</div>
-</div>
-</div>
-
 </div>
 </body>
 
