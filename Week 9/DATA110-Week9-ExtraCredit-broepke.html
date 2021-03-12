@@ -14323,8 +14323,7 @@ a.anchor-link {
 <div class="jp-InputPrompt jp-InputArea-prompt">In&nbsp;[3]:</div>
 <div class="jp-CodeMirrorEditor jp-Editor jp-InputArea-editor" data-type="inline">
      <div class="CodeMirror cm-s-jupyter">
-<div class=" highlight hl-ipython3"><pre><span></span><span class="n">wine</span> <span class="o">=</span> <span class="nb">list</span><span class="p">(</span><span class="n">wine_df</span><span class="p">[</span><span class="s1">&#39;description&#39;</span><span class="p">]</span><span class="o">.</span><span class="n">values</span><span class="p">)</span>
-<span class="n">wine</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span>
+<div class=" highlight hl-ipython3"><pre><span></span><span class="n">wine_df</span><span class="o">.</span><span class="n">head</span><span class="p">()</span>
 </pre></div>
 
      </div>
@@ -14344,6 +14343,141 @@ a.anchor-link {
 
 
 
+<div class="jp-RenderedHTMLCommon jp-RenderedHTML jp-OutputArea-output jp-OutputArea-executeResult" data-mime-type="text/html">
+<div>
+<style scoped>
+    .dataframe tbody tr th:only-of-type {
+        vertical-align: middle;
+    }
+
+    .dataframe tbody tr th {
+        vertical-align: top;
+    }
+
+    .dataframe thead th {
+        text-align: right;
+    }
+</style>
+<table border="1" class="dataframe">
+  <thead>
+    <tr style="text-align: right;">
+      <th></th>
+      <th>country</th>
+      <th>description</th>
+      <th>designation</th>
+      <th>points</th>
+      <th>price</th>
+      <th>province</th>
+      <th>region_1</th>
+      <th>region_2</th>
+      <th>variety</th>
+      <th>winery</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <th>0</th>
+      <td>US</td>
+      <td>Malbec, Merlot and Petit Verdot are included i...</td>
+      <td>Kate's + B's</td>
+      <td>90</td>
+      <td>75.0</td>
+      <td>California</td>
+      <td>Alexander Valley</td>
+      <td>Sonoma</td>
+      <td>Cabernet Sauvignon</td>
+      <td>Medlock Ames</td>
+    </tr>
+    <tr>
+      <th>1</th>
+      <td>US</td>
+      <td>This straightforward wine shows an exuberance ...</td>
+      <td>NaN</td>
+      <td>90</td>
+      <td>35.0</td>
+      <td>California</td>
+      <td>Alexander Valley</td>
+      <td>Sonoma</td>
+      <td>Cabernet Sauvignon</td>
+      <td>The Calling</td>
+    </tr>
+    <tr>
+      <th>2</th>
+      <td>US</td>
+      <td>Smoke, brawny black pepper and black cherry fl...</td>
+      <td>Osborn Ranch</td>
+      <td>86</td>
+      <td>38.0</td>
+      <td>California</td>
+      <td>Alexander Valley</td>
+      <td>Sonoma</td>
+      <td>Primitivo</td>
+      <td>DeLorimier</td>
+    </tr>
+    <tr>
+      <th>3</th>
+      <td>US</td>
+      <td>Complemented with 11% Cabernet Franc, this vin...</td>
+      <td>Oliver's Vineyard</td>
+      <td>93</td>
+      <td>85.0</td>
+      <td>California</td>
+      <td>Alexander Valley</td>
+      <td>Sonoma</td>
+      <td>Cabernet Sauvignon</td>
+      <td>Aperture</td>
+    </tr>
+    <tr>
+      <th>4</th>
+      <td>US</td>
+      <td>A collaboration between Sonoma County-based wi...</td>
+      <td>A Ken Forrester Wine Farrow Ranch</td>
+      <td>93</td>
+      <td>100.0</td>
+      <td>California</td>
+      <td>Alexander Valley</td>
+      <td>Sonoma</td>
+      <td>Cabernet Sauvignon</td>
+      <td>The Bridge</td>
+    </tr>
+  </tbody>
+</table>
+</div>
+</div>
+
+</div>
+
+</div>
+
+</div>
+
+</div><div class="jp-Cell jp-CodeCell jp-Notebook-cell   ">
+<div class="jp-Cell-inputWrapper">
+<div class="jp-InputArea jp-Cell-inputArea">
+<div class="jp-InputPrompt jp-InputArea-prompt">In&nbsp;[4]:</div>
+<div class="jp-CodeMirrorEditor jp-Editor jp-InputArea-editor" data-type="inline">
+     <div class="CodeMirror cm-s-jupyter">
+<div class=" highlight hl-ipython3"><pre><span></span><span class="n">wine</span> <span class="o">=</span> <span class="nb">list</span><span class="p">(</span><span class="n">wine_df</span><span class="p">[</span><span class="s1">&#39;description&#39;</span><span class="p">]</span><span class="o">.</span><span class="n">values</span><span class="p">)</span>
+<span class="n">wine</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span>
+</pre></div>
+
+     </div>
+</div>
+</div>
+</div>
+
+<div class="jp-Cell-outputWrapper">
+
+
+<div class="jp-OutputArea jp-Cell-outputArea">
+
+<div class="jp-OutputArea-child">
+
+    
+    <div class="jp-OutputPrompt jp-OutputArea-prompt">Out[4]:</div>
+
+
+
 
 <div class="jp-RenderedText jp-OutputArea-output jp-OutputArea-executeResult" data-mime-type="text/plain">
 <pre>&#34;Malbec, Merlot and Petit Verdot are included in this wine that&#39;s black-purple in color, with a thick density to its dusty black fruit. Cedar, tar and tobacco weave in between blackberry and currant, finishing in a powerful grip of tannin.&#34;</pre>
@@ -14358,7 +14492,7 @@ a.anchor-link {
 </div><div class="jp-Cell jp-CodeCell jp-Notebook-cell jp-mod-noOutputs  ">
 <div class="jp-Cell-inputWrapper">
 <div class="jp-InputArea jp-Cell-inputArea">
-<div class="jp-InputPrompt jp-InputArea-prompt">In&nbsp;[4]:</div>
+<div class="jp-InputPrompt jp-InputArea-prompt">In&nbsp;[5]:</div>
 <div class="jp-CodeMirrorEditor jp-Editor jp-InputArea-editor" data-type="inline">
      <div class="CodeMirror cm-s-jupyter">
 <div class=" highlight hl-ipython3"><pre><span></span><span class="n">wn_lemmer</span> <span class="o">=</span> <span class="n">WordNetLemmatizer</span><span class="p">()</span>
@@ -14383,7 +14517,7 @@ a.anchor-link {
 </div><div class="jp-Cell jp-CodeCell jp-Notebook-cell   ">
 <div class="jp-Cell-inputWrapper">
 <div class="jp-InputArea jp-Cell-inputArea">
-<div class="jp-InputPrompt jp-InputArea-prompt">In&nbsp;[5]:</div>
+<div class="jp-InputPrompt jp-InputArea-prompt">In&nbsp;[6]:</div>
 <div class="jp-CodeMirrorEditor jp-Editor jp-InputArea-editor" data-type="inline">
      <div class="CodeMirror cm-s-jupyter">
 <div class=" highlight hl-ipython3"><pre><span></span><span class="n">TfidfVec</span> <span class="o">=</span> <span class="n">TfidfVectorizer</span><span class="p">(</span><span class="n">stop_words</span><span class="o">=</span><span class="s1">&#39;english&#39;</span><span class="p">,</span> <span class="n">tokenizer</span><span class="o">=</span><span class="n">custom_tokenizer</span><span class="p">)</span>
@@ -14408,7 +14542,7 @@ a.anchor-link {
 <div class="jp-OutputArea-child">
 
     
-    <div class="jp-OutputPrompt jp-OutputArea-prompt">Out[5]:</div>
+    <div class="jp-OutputPrompt jp-OutputArea-prompt">Out[6]:</div>
 
 
 
@@ -14739,7 +14873,7 @@ a.anchor-link {
 </div><div class="jp-Cell jp-CodeCell jp-Notebook-cell jp-mod-noOutputs  ">
 <div class="jp-Cell-inputWrapper">
 <div class="jp-InputArea jp-Cell-inputArea">
-<div class="jp-InputPrompt jp-InputArea-prompt">In&nbsp;[6]:</div>
+<div class="jp-InputPrompt jp-InputArea-prompt">In&nbsp;[7]:</div>
 <div class="jp-CodeMirrorEditor jp-Editor jp-InputArea-editor" data-type="inline">
      <div class="CodeMirror cm-s-jupyter">
 <div class=" highlight hl-ipython3"><pre><span></span><span class="k">def</span> <span class="nf">wine_reccomendation</span><span class="p">(</span><span class="n">new_wine</span><span class="p">):</span>
@@ -14788,7 +14922,7 @@ a.anchor-link {
 </div><div class="jp-Cell jp-CodeCell jp-Notebook-cell   ">
 <div class="jp-Cell-inputWrapper">
 <div class="jp-InputArea jp-Cell-inputArea">
-<div class="jp-InputPrompt jp-InputArea-prompt">In&nbsp;[7]:</div>
+<div class="jp-InputPrompt jp-InputArea-prompt">In&nbsp;[8]:</div>
 <div class="jp-CodeMirrorEditor jp-Editor jp-InputArea-editor" data-type="inline">
      <div class="CodeMirror cm-s-jupyter">
 <div class=" highlight hl-ipython3"><pre><span></span><span class="k">while</span> <span class="kc">True</span><span class="p">:</span>
@@ -14799,6 +14933,7 @@ a.anchor-link {
         <span class="c1"># If the user enters quit, then exit the while loop completely.</span>
         <span class="k">break</span>
     <span class="k">else</span><span class="p">:</span>
+
         <span class="n">wine_reccomendation</span><span class="p">(</span><span class="n">w</span><span class="p">)</span>
 </pre></div>
 
@@ -14829,15 +14964,47 @@ a.anchor-link {
 
 <div class="jp-RenderedText jp-OutputArea-output" data-mime-type="text/plain">
 <pre>
-Your requirements: watermelon 
+Your requirements: oak butter crisp
 
-Similarity Score: 0.35764440074531123
+Similarity Score: 0.3657575439130573
 
-Tasting Notes: Front-loaded with cherries, watermelons and pomegranates, with hints of violets, vanilla and spices, this is one of the richer, more full-bodied blush wines out there. Great picnic or beach wine.
+Tasting Notes: This is a simple Chardonnay: It tastes sweet, soft and creamy, with butter, caramel, orange and mango flavors.
 
-Winery: Gustafson Family
-Varietal: Rosé
-Points: 88
+Winery: Olema
+Varietal: Chardonnay
+Points: 82
+Retail Price: 15.0
+--------------------------------------
+</pre>
+</div>
+</div>
+
+<div class="jp-OutputArea-child">
+
+    
+    <div class="jp-OutputPrompt jp-OutputArea-prompt"></div>
+
+
+
+</div>
+
+<div class="jp-OutputArea-child">
+
+    
+    <div class="jp-OutputPrompt jp-OutputArea-prompt"></div>
+
+
+<div class="jp-RenderedText jp-OutputArea-output" data-mime-type="text/plain">
+<pre>
+Your requirements: vanilla almond rich
+
+Similarity Score: 0.36723970630646563
+
+Tasting Notes: This is an elegant white wine, dry, crisp and sophisticated. Shows flashy flavors of citrus fruits, roasted almond and vanilla. Try as an alternative to Sauvignon Blanc.
+
+Winery: MacMurray Ranch
+Varietal: Pinot Gris
+Points: 87
 Retail Price: 20.0
 --------------------------------------
 </pre>
@@ -14861,16 +15028,16 @@ Retail Price: 20.0
 
 <div class="jp-RenderedText jp-OutputArea-output" data-mime-type="text/plain">
 <pre>
-Your requirements: summer happiness sun
+Your requirements: cheery chocolate coffee dark oak
 
-Similarity Score: 0.28116541626127856
+Similarity Score: 0.22867209976284258
 
-Tasting Notes: There&#39;s some sharpness throughout this Zinfandel. The palate wishes it were smoother and more harmonious, especially since the flavors are very rich, suggesting ripe blackberries and blueberries, picked under a warm summer sun, as well as black pepper and mocha. Ready now.
+Tasting Notes: Here&#39;s a good bottle of Zinfandel. It&#39;s dry and full bodied, with rich, spicy flavors of berries, fruit liqueur, roasted coffee, dark chocolate and pepper. A little rustic around the edges, but a fine Zin for drinking now.
 
-Winery: Alderbrook
+Winery: Kokomo
 Varietal: Zinfandel
 Points: 87
-Retail Price: 34.0
+Retail Price: 22.0
 --------------------------------------
 </pre>
 </div>
@@ -14893,16 +15060,16 @@ Retail Price: 34.0
 
 <div class="jp-RenderedText jp-OutputArea-output" data-mime-type="text/plain">
 <pre>
-Your requirements: bright crisp apple citrus
+Your requirements: steak
 
-Similarity Score: 0.3832281212538229
+Similarity Score: 0.326602128366977
 
-Tasting Notes: Crisp and clean, this wine refreshes with its bright citrus and fig flavors and acidity. It has a good body and a touch of cream.
+Tasting Notes: A little sweet and candy simple, this Zin shows blackberry, cherry and raspberry flavors that have a pie-filling taste. The firm tannins call for a grilled steak.
 
-Winery: Dry Creek Vineyard
-Varietal: Fumé Blanc
-Points: 85
-Retail Price: 13.0
+Winery: Hayman &amp; Hill
+Varietal: Zinfandel
+Points: 84
+Retail Price: 16.0
 --------------------------------------
 </pre>
 </div>
@@ -14925,48 +15092,16 @@ Retail Price: 13.0
 
 <div class="jp-RenderedText jp-OutputArea-output" data-mime-type="text/plain">
 <pre>
-Your requirements: oak refreshing
+Your requirements: fish tacos
 
-Similarity Score: 0.34702308219041733
+Similarity Score: 0.4789383761486915
 
-Tasting Notes: With just a touch of oak providing creamy vanilla flavors, this wine&#39;s real stars are the lemon, lime and tropical fruit flavors, which have such a pretty minerality. It&#39;s a little sweet, but refreshing acidity balances that out.
+Tasting Notes: This is a good everyday Sauvignon Blanc for drinking with chicken, ham sandwiches or fish tacos. Slightly sweet in orange and vanilla, it&#39;s accompanied by crisp acidity.
 
-Winery: Longboard
+Winery: Kenwood
 Varietal: Sauvignon Blanc
-Points: 87
-Retail Price: 20.0
---------------------------------------
-</pre>
-</div>
-</div>
-
-<div class="jp-OutputArea-child">
-
-    
-    <div class="jp-OutputPrompt jp-OutputArea-prompt"></div>
-
-
-
-</div>
-
-<div class="jp-OutputArea-child">
-
-    
-    <div class="jp-OutputPrompt jp-OutputArea-prompt"></div>
-
-
-<div class="jp-RenderedText jp-OutputArea-output" data-mime-type="text/plain">
-<pre>
-Your requirements: buttery oak golden
-
-Similarity Score: 0.32741918539207593
-
-Tasting Notes: A delicate study in Golden Delicious apple and ginger undertones, this wine is also hearty in toast and oak, concentrated and rich with a clean finish of vanilla and hazelnut. A good call with buttery seafood like fresh-caught lobster.
-
-Winery: St. Francis
-Varietal: Chardonnay
-Points: 88
-Retail Price: 26.0
+Points: 84
+Retail Price: 12.0
 --------------------------------------
 </pre>
 </div>
@@ -15000,7 +15135,7 @@ Retail Price: 26.0
 </div>
 <div class="jp-Cell-inputWrapper"><div class="jp-InputPrompt jp-InputArea-prompt">
 </div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput " data-mime-type="text/markdown">
-<h1 id="Basic-Text-preprocessing-steps">Basic Text preprocessing steps<a class="anchor-link" href="#Basic-Text-preprocessing-steps">&#182;</a></h1><p>removing noise: anything that isn’t a standard number or letter
+<h1 id="Notes">Notes<a class="anchor-link" href="#Notes">&#182;</a></h1><h2 id="Basic-Text-preprocessing-steps">Basic Text preprocessing steps<a class="anchor-link" href="#Basic-Text-preprocessing-steps">&#182;</a></h2><p>removing noise: anything that isn’t a standard number or letter
 removing stop words: very common words that add little value in analysis are removed from the vocabulary.
 stemming: reducing inflected (or derived) words to their stem, base or root form 
 lemmatization: similar to stemming, however stemming can often create non-words, whereas lemmas are actual words</p>
@@ -15043,6 +15178,34 @@ Its vector representation would be : $(1, 1, 0, 0, 1)$, where the numbers repres
 </ol>
 
 </div>
+</div><div class="jp-Cell jp-CodeCell jp-Notebook-cell jp-mod-noOutputs  ">
+<div class="jp-Cell-inputWrapper">
+<div class="jp-InputArea jp-Cell-inputArea">
+<div class="jp-InputPrompt jp-InputArea-prompt">In&nbsp;[&nbsp;]:</div>
+<div class="jp-CodeMirrorEditor jp-Editor jp-InputArea-editor" data-type="inline">
+     <div class="CodeMirror cm-s-jupyter">
+<div class=" highlight hl-ipython3"><pre><span></span> 
+</pre></div>
+
+     </div>
+</div>
+</div>
+</div>
+
+</div><div class="jp-Cell jp-CodeCell jp-Notebook-cell jp-mod-noOutputs  ">
+<div class="jp-Cell-inputWrapper">
+<div class="jp-InputArea jp-Cell-inputArea">
+<div class="jp-InputPrompt jp-InputArea-prompt">In&nbsp;[&nbsp;]:</div>
+<div class="jp-CodeMirrorEditor jp-Editor jp-InputArea-editor" data-type="inline">
+     <div class="CodeMirror cm-s-jupyter">
+<div class=" highlight hl-ipython3"><pre><span></span> 
+</pre></div>
+
+     </div>
+</div>
+</div>
+</div>
+
 </div>
 </body>
 
