@@ -5,7 +5,7 @@
 		}
 	],
 	"settings": {
-		"python.pythonPath": "/Users/brianroepke/miniforge3/envs/DATA110/bin/python3.9",
+		"python.pythonPath": "/Users/brianroepke/miniforge3/envs/DATA110/bin/python",
 		"jupyter.jupyterServerType": "local"
 	}
 }
