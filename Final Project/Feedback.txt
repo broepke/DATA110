@@ -1,0 +1,15 @@
+- There was no mean star rating of 3.5 ? Both star ratings x and y are nearly the same at 3.749 and 3.802 respectively. As I understand it x is more granular with partial ratings while y is an integer.  Are both needed?
+
+- would be helpful to explain the organization of the dataset. For example: reviews are organized by business and review where reviews_count is the number of reviews by business. Hence each observation is a particular review by business.
+
+- count plots by State, good to have the counts in sorted order
+
+-based on word frequencies, seems some words could be removed as custom stop words: 'would', 'get', 'got', 'u', 'even', etc..
+
+- polarity scores: texblob scores from most negative (-1) to most positive (1) where 0 is neutral. Your implementation treats  <= 0 as negative and everything else as positive. Might it be useful to set a threshold? For example, should polarity only slightly greater than 0 still be considered positive?
+
+- Would be useful to see how star-ratings compare to polarity. Sometimes review ratings are mis-labeled and don't match sentiment in review text. Would be useful to see how many, and whether it impacts the model.
+
+- Model 1: (non DL). MinMax scaler scales values from 0 to 1.  Given this, it does not seem to make sense to scale the polarity score, so I would leave out that preprocessing.
+
+Model 2 (DL model): would be nice to see the loss/accuracy plot for the test/validation set also, to see how it compares to the training set. Your plots seem to show only the training metrics?
